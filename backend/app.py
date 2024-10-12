@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, jsonify
 import os
 from flask_sqlalchemy import SQLAlchemy
 
@@ -17,17 +17,25 @@ from models import User
 def home():
     return 'Hello, World!'
 
-@app.route('/add_user/<username>/<email>')
-def add_user(username, email):
-    new_user = User(username=username, email=email)
+@app.route('/users', methods=['POST'])
+def add_user():
+    data = request.json
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    
+    if not username or not email:
+        return jsonify({'error': 'Username and email are required'}), 400
+    
+    new_user = User(username=username, email=email, password=password)
     db.session.add(new_user)
     db.session.commit()
-    return f"User {username} added."
+    return jsonify({'message': f'User {username} added.'}), 201
 
-@app.route('/users')
+@app.route('/users', methods=['GET'])
 def get_users():
     users = User.query.all()
-    return {'users': [{'id': user.id, 'username': user.username, 'email': user.email} for user in users]}
+    return jsonify([{'id': user.id, 'username': user.username, 'email': user.email} for user in users])
 
 if __name__ == '__main__':
     app.run(debug=True)
