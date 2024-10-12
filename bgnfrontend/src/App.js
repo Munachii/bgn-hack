@@ -1,21 +1,20 @@
+import Songselect from "./Components/SongSelection/Songselect";
+
 
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="content">
+        <Songselect />
       
-        <p>
-          
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-      </header>
+
+    
+      </div>
+     
+    
+    
     </div>
   );
 }
