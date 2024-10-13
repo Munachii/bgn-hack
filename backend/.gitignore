@@ -1,0 +1,27 @@
+# Ignore Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Ignore the virtual environment directory
+venv/
+
+# Ignore environment variables
+.env
+
+# Ignore any log files
+*.log
+
+# Ignore IDE-specific files (e.g., PyCharm, VSCode)
+.idea/
+.vscode/
+
+# Ignore distribution and build directories
+build/
+dist/
+*.egg-info/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore compiled C extensions
+*.so
