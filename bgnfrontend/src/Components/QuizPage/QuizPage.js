@@ -1,6 +1,6 @@
 import React, { useEffect, useState ,useRef} from 'react';
-import axios from 'axios';
 import './QuizPage.css';
+import axios from 'axios';
 import pic1 from '../../images/img1.jpeg';
 
 function QuizPage(){
@@ -61,8 +61,11 @@ function QuizPage(){
     return (
         <>
             <h1 className="game-page-title">Lyric Lingo</h1>
+            
+            <div className='instructions'>
             <h4>How to play :</h4>
             <h6>Listen to the song snippet in the native language of your choice, then translate the snippet to English.</h6>
+            </div>
             <div className="container d-flex justify-content-center my-4 mb-5">
                 <div className="card">
                     <div className="bg-image hover-overlay ripple">
@@ -76,6 +79,7 @@ function QuizPage(){
                     </div>
                 </div>
             </div>
+            
             <hr />
             {questions.length > 0 ? (
                 <>
