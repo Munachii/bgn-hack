@@ -1,4 +1,4 @@
-import SongList from "./Components/SongList/SongList/SongList";
+import SongList from "./Components/SongPage/SongList";
 
 
 
