@@ -14,9 +14,10 @@ function QuizPage() {
 
   // Fetch questions from the backend
   useEffect(() => {
-    axios.get('http://localhost:5000/questions')
+    axios.get('http://localhost:5000/songs/1/questions')
       .then(response => {
         setQuestions(response.data);
+        console.log(response.data);
         setLoading(false);
       })
       .catch(error => {
