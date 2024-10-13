@@ -37,38 +37,53 @@ class Song(db.Model):
     translated_lyrics_url = db.Column(db.String(200), nullable=False) 
     thumbnail_url = db.Column(db.String(200), nullable=False)
 
-def init_db(csv_file):
+def init_db(songs_csv, questions_csv):
+    # Create all tables
     db.create_all()
 
-    with open(csv_file, newline='') as file:
-        reader = csv.DictReader(file)
+    # Populate the songs table
+    with open(songs_csv, newline='') as songs_file:
+        reader = csv.DictReader(songs_file)
         for row in reader:
-            question = Question(
-                song_id=row['song_id'],
-                song_timestamp=row['song_timestamp'],
-                question=row['question'],
-                answer=row['answer']
-            )
-            db.session.add(question)
-        db.session.commit()
-            
-    with open('songs.csv', newline='') as file:
-        reader = csv.DictReader(file)
-        for row in reader: 
-            title = row['title'].replace(' ', '_')
-            song = Song(
-                title=title,
-                artist=row['artist'],
-                song_url=row['song_url'],
-                language=row['language'],
-                lyrics_url=f'{title}_original.lrc',
-                translated_lyrics_url=f'{title}_translated.lrc',
-                thumbnail_url=f'{title}.jpg'
-            )
-            db.session.add(song)
+            # Check if the song already exists in the database
+            existing_song = Song.query.filter_by(title=row['title'], artist=row['artist']).first()
+            if not existing_song:
+                song = Song(
+                    title=row['title'],
+                    artist=row['artist'],
+                    song_url=row['song_url'],
+                    language=row['language'],
+                    lyrics_url=row['lyrics_url'],
+                    translated_lyrics_url=row['translated_lyrics_url'],
+                    thumbnail_url=row['thumbnail_url']
+                )
+                db.session.add(song)
         db.session.commit()
 
-if __name__ == "__main__":
+    # Populate the questions table
+    with open(questions_csv, newline='') as questions_file:
+        reader = csv.DictReader(questions_file)
+        for row in reader:
+            # Check if the question already exists in the database
+            existing_question = Question.query.filter_by(
+                song_id=row['song_id'], 
+                song_timestamp=row['song_timestamp'], 
+                question=row['question']
+            ).first()
+            if not existing_question:
+                question = Question(
+                    song_id=row['song_id'],
+                    song_timestamp=row['song_timestamp'],
+                    question=row['question'],
+                    answer=row['answer']
+                )
+                db.session.add(question)
+        db.session.commit()
+
+if __name__ == '__main__':
+    # Use Flask's application context
     with app.app_context():
-        init_db('questions.csv')
-        print("Database initialised and prepopulated with CSV data.")
+        songs_csv = 'songs.csv'  # Make sure this path is correct
+        questions_csv = 'questions.csv'  # Make sure this path is correct
+        init_db(songs_csv, questions_csv)
+        print("Database initialized and prepopulated with CSV data.")
