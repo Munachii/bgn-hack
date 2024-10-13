@@ -1,1 +1,2 @@
-title, artist, song_url, language
+id,title,artist,song_url,lyrics_url,translated_lyrics_url,thumbnail_url,language
+1,2-30,Asake,songs/Asake-2-30.mp3,lyrics/Asake_2-30_original.lrc,lyrics/Asake_2-30_translated.lrc,images/Asake-2-30.jpg,Yoruba

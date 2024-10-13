@@ -1,1 +1,6 @@
-song_id,song_timestamp,question,answer
+song_id,song_timestamp,question,answer,difficulty
+1,00:34.37-00:36.65,Translate Àwa l'ọmọ tọ ń sọ, ti o seke, ye,"we are the children they talk about that is clear,2
+1,00:51.36-00:53.62,Translate Ẹ sọ̀ fún wọn t'oba tẹ'ri si, wọn má pa l'órí,tell them that if they confront you they will not go unpunished,2
+1,00:42.48-00:45.63,Translate O fẹ jẹ ń bi, o tún fẹ jẹ ń bẹ, ò pọ, sẹ,"you want to be in a certain way but you also want to be in another way isnt it,2
+1,00:55.92-01:00.76,Translate Torí ko s'ẹlòmíì, many men fẹ dàbí mí, ẹ ri bi,"because there is no one else many men want to be like me you see how,2
+1,01:45.93-01:47.94,Translate Mo ti lọ, mo ti pá 'yẹn ti",i have gone i have finished that,2
