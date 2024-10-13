@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: calibiri;
+    color:#fff;
+}
+@font-face {
+    font-family: falco-black;
+    src: url(./Falco-Font/FalcoBlack.ttf);
+
+}
+
+@font-face {
+    font-family: falco-outline;
+    src: url(./Falco-Font/Falco_Black_Outline.ttf);
+    
+}
+body{
+    /* background-color: black; */
+}
+
+
+.homepage-grid{
+    display: grid;
+    grid-template: 75px auto 75px / repeat(12, 1fr);
+    height: 100vh;
+
+}
+.homepage-items{
+    background-color: rgb(34, 34, 34);
+}
+.nav-bar{
+    background-color: rgba(34, 34, 34);
+    grid-row: 1/ span 1;
+    grid-column: 1 / -1;
+    display:flex;
+    justify-content: center;
+}
+.logo{
+    margin-left: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo > img{
+    height: 60px;
+    border-radius: 50%;
+}
+.content{
+    
+    grid-row: 2/span 1;
+    grid-column: 1/-1;
+    z-index: -1;
+}
+
+.content-background{
+    position: relative;
+    height: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template: 20% 80%/ 100vw;
+    background: linear-gradient(rgba(34, 34, 34, 1)20%, rgba(34, 34, 34, 0.4)80%);
+    
+}
+
+.content-background::before {
+  content: "";
+  position: absolute;
+  grid-row: 2 / span 1;
+  background: url(./images/background-image.jpg) no-repeat center/cover;
+  height: 100%;
+  width: 100vw;
+  z-index: -1;
+}
+
+.content-background > div{
+    grid-column: 1/-1;
+}
+
+.title-wrap{
+    height: 100%;
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    grid-row: 1/ span 1;
+    border-top: 2px solid #fff;
+}
+
+
+.title{
+    font-family: falco-black;
+}
+
+.start-container{
+grid-column: 1/-1;
+grid-row: 2/span 1;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+
+.start-wrap{
+    height:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+
+h2{
+    font-family: falco-black;
+    margin: 10px;
+}
+
+
+.start-btn{
+    background-color: rgba(34, 34, 34, 0.6);
+    border:2px solid #fff;
+    border-radius: 40px;
+    height: 4rem;
+    width:9rem;
+    font-family: falco-black;
+    margin: 10px;
+}
+
+.start-btn:hover{
+    cursor:pointer;
+    border-color:rgb(236, 224, 224);
+    background-color:#fff;
+    border-color:rgb(34, 34, 34);
+    color:black;
+    font-size:1rem ;
+}
+
+.footer{
+    background-color: black;
+    grid-row: 3/-1;
+    grid-column: 1/-1
+}
