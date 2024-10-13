@@ -72,7 +72,7 @@ function QuizPage(){
                         <img className="card-img-top" src={pic1} alt="Card cap"/>
                     </div>
                     <div className="card-body text-center">
-                        <h5 className="h5 font-weight-bold">Asake</h5>
+                        <h5 className="h5-font-weight-bold">Asake</h5>
                         <p className="mb-0">2:30</p>
 
                         <audio ref={audioRef} controls />

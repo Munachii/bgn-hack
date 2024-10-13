@@ -21,6 +21,9 @@ body{
 
 .instructions{
   text-align: center;
+  font-size: 1.7rem;
+  color: #ccc;
+  margin-bottom: 10px;
 }
 
 .song-list {
@@ -51,12 +54,35 @@ body{
   
 
   .card-img-top{
-    height: 200px;
+    height: 500px;
   min-width: 200px;
   max-width: 100%;
   box-shadow: 8px 8px #fdc500;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  
+  
+  }
+  .h5-font-weight-bold{
+    padding-top: 50px;
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 40px;
+    text-align: center;
+
+  }
+  .mb-0{
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 10px;
+    text-align: center;
   }
   
+ 
+
+
   .song-item h3 {
     margin: 10px 0;
     font-size: 1.5em; 
