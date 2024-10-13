@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
-=======
-import React, { useEffect, useState ,useRef} from 'react';
->>>>>>> dd9464daf63bbb056d1db062d4c6dafb4b76b476
-import './QuizPage.css';
 import axios from 'axios';
 import pic1 from '../../images/img1.jpeg';
 
@@ -54,7 +48,6 @@ function QuizPage() {
     }
   };
 
-<<<<<<< HEAD
   // Handle showing next question
   const handleNextQuestion = () => {
     setShowAnswer(false);
@@ -65,24 +58,6 @@ function QuizPage() {
       alert(`Quiz finished! Your final score is ${score} out of ${questions.length}.`);
     }
   };
-=======
-    return (
-        <>
-            <h1 className="game-page-title">Lyric Lingo</h1>
-            
-            <div className='instructions'>
-            <h4>How to play :</h4>
-            <h6>Listen to the song snippet in the native language of your choice, then translate the snippet to English.</h6>
-            </div>
-            <div className="container d-flex justify-content-center my-4 mb-5">
-                <div className="card">
-                    <div className="bg-image hover-overlay ripple">
-                        <img className="card-img-top" src={pic1} alt="Card cap"/>
-                    </div>
-                    <div className="card-body text-center">
-                        <h5 className="h5 font-weight-bold">Asake</h5>
-                        <p className="mb-0">2:30</p>
->>>>>>> dd9464daf63bbb056d1db062d4c6dafb4b76b476
 
   // Play the song snippet based on the timestamp from the backend
 const playSong = (artist, songId, title, timestamp) => {
@@ -98,8 +73,12 @@ const playSong = (artist, songId, title, timestamp) => {
   }
 
   // Split start and end times into minutes, seconds, and milliseconds
-  const [sM, sS, sMs] = startTime.split(":").map(Number);
-  const [eM, eS, eMs] = endTime.split(":").map(Number);
+  const [ssM, sSandMs] = startTime.split(":");
+  const sM = parseInt(ssM);
+  const [sS, sMs] = sSandMs.split(".").map(Number);
+  const [eeM, eSandMs] = startTime.split(":");
+  const eM = parseInt(eeM);
+  const [eS, eMs] = eSandMs.split(".").map(Number)
 
   // Ensure all values are numeric
   if (isNaN(sM) || isNaN(sS) || isNaN(sMs) || isNaN(eM) || isNaN(eS) || isNaN(eMs)) {
@@ -115,7 +94,7 @@ const playSong = (artist, songId, title, timestamp) => {
   console.log("Start in seconds:", startinsec, "End in seconds:", endinsec);
 
   // Construct the audio file path
-  const audioFile = `/songs/${artist}-${title}-${songId}.mp3`;
+  const audioFile = `C:/Users/lizao/OneDrive/Desktop/BGN/bgn-hack/backend/songs/Asake-2-30.mp3`;
   const audio = audioRef.current; // Get the audio element reference
 
   if (audio) {
@@ -148,16 +127,6 @@ const playSong = (artist, songId, title, timestamp) => {
             <h5 className="h5 font-weight-bold">Asake</h5>
             <p className="mb-0">2:30</p>
 
-            <audio ref={audioRef} controls />
-            {/* Play Song Button */}
-            <div>
-              <button
-                onClick={() => playSong('Asake', '2:30', 'Title', '0:00-0:30')}
-              >
-                Play Song
-              </button>
-            </div>
-<<<<<<< HEAD
           </div>
         </div>
       </div>
@@ -185,28 +154,11 @@ const playSong = (artist, songId, title, timestamp) => {
                   ? "Correct!"
                   : "Incorrect"}
               </p>
-=======
-            
-            <hr />
-            {questions.length > 0 ? (
-                <>
-                    <div>
-                        <h2>{currentQuestion.question}</h2>
-                        {showAnswer && <p>Answer: {currentQuestion.answer}</p>}
-                        <div className="d-flex justify-content-center">
-                            <button className="btn btn-primary mx-2" onClick={handleShowAnswer}>Show Answer</button>
-                            <button className="btn btn-secondary mx-2" onClick={handleNextQuestion}>Next Question</button>
-                        </div>
-                    </div>
-                </>
-            ) : (
-                <p>Loading questions...</p>
->>>>>>> dd9464daf63bbb056d1db062d4c6dafb4b76b476
             )}
             
             <button
                 className="btn btn-info mx-2"
-                onClick={() => playSong('Asake', currentQuestion.id, 'Title', currentQuestion.song_timestamp)}
+                onClick={() => playSong('Asake', currentQuestion.id, currentQuestion.title, currentQuestion.song_timestamp)}
             >
                 Play Song
             </button>
