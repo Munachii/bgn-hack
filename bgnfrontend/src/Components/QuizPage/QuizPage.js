@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
+=======
+import React, { useEffect, useState ,useRef} from 'react';
+>>>>>>> dd9464daf63bbb056d1db062d4c6dafb4b76b476
 import './QuizPage.css';
+import axios from 'axios';
 import pic1 from '../../images/img1.jpeg';
 
 function QuizPage() {
@@ -49,6 +54,7 @@ function QuizPage() {
     }
   };
 
+<<<<<<< HEAD
   // Handle showing next question
   const handleNextQuestion = () => {
     setShowAnswer(false);
@@ -59,6 +65,24 @@ function QuizPage() {
       alert(`Quiz finished! Your final score is ${score} out of ${questions.length}.`);
     }
   };
+=======
+    return (
+        <>
+            <h1 className="game-page-title">Lyric Lingo</h1>
+            
+            <div className='instructions'>
+            <h4>How to play :</h4>
+            <h6>Listen to the song snippet in the native language of your choice, then translate the snippet to English.</h6>
+            </div>
+            <div className="container d-flex justify-content-center my-4 mb-5">
+                <div className="card">
+                    <div className="bg-image hover-overlay ripple">
+                        <img className="card-img-top" src={pic1} alt="Card cap"/>
+                    </div>
+                    <div className="card-body text-center">
+                        <h5 className="h5 font-weight-bold">Asake</h5>
+                        <p className="mb-0">2:30</p>
+>>>>>>> dd9464daf63bbb056d1db062d4c6dafb4b76b476
 
   // Play the song snippet based on the timestamp from the backend
 const playSong = (artist, songId, title, timestamp) => {
@@ -133,6 +157,7 @@ const playSong = (artist, songId, title, timestamp) => {
                 Play Song
               </button>
             </div>
+<<<<<<< HEAD
           </div>
         </div>
       </div>
@@ -160,6 +185,23 @@ const playSong = (artist, songId, title, timestamp) => {
                   ? "Correct!"
                   : "Incorrect"}
               </p>
+=======
+            
+            <hr />
+            {questions.length > 0 ? (
+                <>
+                    <div>
+                        <h2>{currentQuestion.question}</h2>
+                        {showAnswer && <p>Answer: {currentQuestion.answer}</p>}
+                        <div className="d-flex justify-content-center">
+                            <button className="btn btn-primary mx-2" onClick={handleShowAnswer}>Show Answer</button>
+                            <button className="btn btn-secondary mx-2" onClick={handleNextQuestion}>Next Question</button>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <p>Loading questions...</p>
+>>>>>>> dd9464daf63bbb056d1db062d4c6dafb4b76b476
             )}
             
             <button
