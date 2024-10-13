@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import pic1 from '../../images/2-30.png';
+import './QuizPage.css';
 
 function QuizPage() {
   const [questions, setQuestions] = useState([]);
