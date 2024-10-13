@@ -1,21 +1,15 @@
+import SongList from "./Components/SongList/SongList/SongList";
+
+
 
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      
-        <p>
-          
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></a>
-      </header>
+  
+     <SongList />
+
     </div>
   );
 }
