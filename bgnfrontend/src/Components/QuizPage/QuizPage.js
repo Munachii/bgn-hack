@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import pic1 from '../../images/img1.jpeg';
+import pic1 from '../../images/2-30.png';
 
 function QuizPage() {
   const [questions, setQuestions] = useState([]);
@@ -9,21 +9,44 @@ function QuizPage() {
   const [showAnswer, setShowAnswer] = useState(false);
   const [score, setScore] = useState(0);
   const [loading, setLoading] = useState(true);
-  const audioRef = useRef(null);
-
-  // Fetch questions from the backend
-  useEffect(() => {
-    axios.get('http://localhost:5000/songs/1/questions')
-      .then(response => {
-        setQuestions(response.data);
-        console.log(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching questions:', error);
-        setLoading(false);
-      });
-  }, []);
+  const audioRef = useRef(null); // Reference to the audio element
+  
+useEffect(() => {
+    const hardcodedQuestions = [
+        {
+            id: 1,
+            question: "Translate Àwa l'ọmọ t'ọ ń sọ, ti o seke, ye",
+            answer: "we are the children they talk about that is clear",
+            song_timestamp: "00:34.37-00:36.65"
+        },
+        {
+            id: 2,
+            question: "Translate Ẹ sọ̀ fún wọn t'oba tẹrẹ'ri si, wọn má pa l'órí",
+            answer: "tell them that if they confront you they will not go unpunished",
+            song_timestamp: "00:50.36-00:53.00"
+        },
+        {
+            id: 3,
+            question: "Translate O fẹ jẹ ń bi, o tún fẹ jẹ ń bẹẹ, ò pọ, sẹ",
+            answer: "you want to be in a certain way but you also want to be in another way isnt it",
+            song_timestamp: "00:42.48-00:45.23"
+        },
+        {
+            id: 4,
+            question: "Translate Torí ko s'ẹlòmíì, many men fẹ dàbí mí, ẹ ri bi",
+            answer: "because there’s no one else many men want to be like me you see how",
+            song_timestamp: "00:55.92-01:00.00"
+        },
+        {
+            id: 5,
+            question: "Translate Mo ti lọ, mo ti pá 'yẹn ti",
+            answer: "i have gone i have finished that",
+            song_timestamp: "01:45.93-01:47.60"
+        }
+    ];
+    setQuestions(hardcodedQuestions);
+    setLoading(false);
+}, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -60,58 +83,50 @@ function QuizPage() {
   };
 
   // Play the song snippet based on the timestamp from the backend
-const playSong = (artist, songId, title, timestamp) => {
-  // Log the timestamp for debugging
-  console.log("Timestamp:", timestamp);
+  const playSong = (artist, songId, title, timestamp) => {
+    console.log("Timestamp:", timestamp);
 
-  // Split the timestamp into start and end times
-  const [startTime, endTime] = timestamp.split("-");
-
-  if (!startTime || !endTime) {
+    const [startTime, endTime] = timestamp.split("-");
+    if (!startTime || !endTime) {
       console.error("Invalid timestamp format:", timestamp);
-      return; // Exit the function if the timestamp is invalid
-  }
+      return;
+    }
 
-  // Split start and end times into minutes, seconds, and milliseconds
-  const [ssM, sSandMs] = startTime.split(":");
-  const sM = parseInt(ssM);
-  const [sS, sMs] = sSandMs.split(".").map(Number);
-  const [eeM, eSandMs] = startTime.split(":");
-  const eM = parseInt(eeM);
-  const [eS, eMs] = eSandMs.split(".").map(Number)
+    const [ssM, sSandMs] = startTime.split(":");
+    const sM = parseInt(ssM);
+    const [sS, sMs] = sSandMs.split(".").map(Number);
+    const [eeM, eSandMs] = endTime.split(":");
+    const eM = parseInt(eeM);
+    const [eS, eMs] = eSandMs.split(".").map(Number);
 
-  // Ensure all values are numeric
-  if (isNaN(sM) || isNaN(sS) || isNaN(sMs) || isNaN(eM) || isNaN(eS) || isNaN(eMs)) {
+    if (isNaN(sM) || isNaN(sS) || isNaN(sMs) || isNaN(eM) || isNaN(eS) || isNaN(eMs)) {
       console.error("Non-numeric time values encountered. Start:", startTime, "End:", endTime);
-      return; // Exit the function if any time values are invalid
-  }
+      return;
+    }
 
-  // Convert start and end times to seconds
-  const startinsec = sM * 60 + sS + (sMs / 1000);
-  const endinsec = eM * 60 + eS + (eMs / 1000);
+    const startinsec = sM * 60 + sS + (sMs / 100);
+    const endinsec = eM * 60 + eS + (eMs / 100);
 
-  // Log converted times for debugging
-  console.log("Start in seconds:", startinsec, "End in seconds:", endinsec);
+    console.log("Start in seconds:", startinsec, "End in seconds:", endinsec);
 
-  // Construct the audio file path
-  const audioFile = `C:/Users/lizao/OneDrive/Desktop/BGN/bgn-hack/backend/songs/Asake-2-30.mp3`;
-  const audio = audioRef.current; // Get the audio element reference
+    const audioFile = "/songs/Asake-2-30.mp3"; // Set the correct file path
+    const audio = audioRef.current;
 
-  if (audio) {
+    if (audio) {
       audio.src = audioFile; // Set the audio source
       audio.currentTime = startinsec; // Set the start time
 
       audio.play().then(() => {
-          setTimeout(() => {
-              audio.pause(); // Pause the audio when the snippet ends
-          }, (endinsec - startinsec) * 1000); // Calculate the snippet duration
+        setTimeout(() => {
+          audio.pause(); // Pause the audio when the snippet ends
+        }, (endinsec - startinsec) * 1000);
       }).catch(error => {
-          console.error("Error playing audio:", error); // Log any errors while playing
+        console.error("Error playing audio:", error);
       });
-  } else {
+    } else {
       console.error("Audio element is not available.");
-  }
-};
+    }
+  };
 
   return (
     <>
@@ -126,7 +141,6 @@ const playSong = (artist, songId, title, timestamp) => {
           <div className="card-body text-center">
             <h5 className="h5 font-weight-bold">Asake</h5>
             <p className="mb-0">2:30</p>
-
           </div>
         </div>
       </div>
@@ -136,13 +150,12 @@ const playSong = (artist, songId, title, timestamp) => {
           <div>
             <h2>{currentQuestion.question}</h2>
 
-            {/* Input field for the user to type their answer */}
             <div>
               <input
                 type="text"
                 placeholder="Type your answer here"
                 value={userAnswer}
-                onChange={(e) => setUserAnswer(e.target.value)}  // Update user's input
+                onChange={(e) => setUserAnswer(e.target.value)}
                 className="form-control"
               />
             </div>
@@ -155,18 +168,18 @@ const playSong = (artist, songId, title, timestamp) => {
                   : "Incorrect"}
               </p>
             )}
-            
             <button
-                className="btn btn-info mx-2"
-                onClick={() => playSong('Asake', currentQuestion.id, currentQuestion.title, currentQuestion.song_timestamp)}
+              className="btn btn-info mx-2"
+              onClick={() => playSong('Asake', currentQuestion.id, currentQuestion.title, currentQuestion.song_timestamp)}
             >
-                Play Song
+              Play Song
             </button>
+            
             <div className="d-flex justify-content-center">
               <button
                 className="btn btn-primary mx-2"
                 onClick={handleShowAnswer}
-                disabled={!userAnswer.trim()}  // Disable button if no answer is typed
+                disabled={!userAnswer.trim()}
               >
                 Submit Answer
               </button>
@@ -179,7 +192,11 @@ const playSong = (artist, songId, title, timestamp) => {
       ) : (
         <p>Loading questions...</p>
       )}
+
       <p>Score: {score}</p>
+
+      {/* Audio element for playing song snippets */}
+      <audio ref={audioRef} controls style={{ display: 'none' }} />
     </>
   );
 }
