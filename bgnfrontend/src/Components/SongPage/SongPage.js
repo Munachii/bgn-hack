@@ -83,7 +83,7 @@ const SongPage = () => {
                 <h3>{song.title}</h3>
                 <p>Artist: {song.artist}</p>
                 <p>Language: {song.language}</p>
-                <a href={song.lyrics_url} target="_blank" rel="noopener noreferrer">Learn!</a>
+                <a href="/quiz">Learn!</a>
               </div>
             </div>
           ))
