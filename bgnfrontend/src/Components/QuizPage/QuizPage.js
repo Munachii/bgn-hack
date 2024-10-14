@@ -150,9 +150,21 @@ useEffect(() => {
 
       {questions.length > 0 ? (
         <>
-          <div>
-            <h2>{currentQuestion.question}</h2>
 
+          <div>
+            <div className="questions-container">
+              <h2 className="questions">{currentQuestion.question}</h2>
+            </div>
+            <div className="button-container">
+              <button
+                className="custom-btn"
+                onClick={() => playSong('Asake', currentQuestion.id, currentQuestion.title, currentQuestion.song_timestamp)}
+              >
+                Play Song
+              </button>
+            </div>
+           
+            
             <div className="input-container">
               <input
                 type="text"
@@ -164,30 +176,25 @@ useEffect(() => {
             </div>
 
             {showAnswer && (
-              <p>
-                Correct Answer: {currentQuestion.answer} <br />
+              <p className='textColor'>
                 {removePunctuation(userAnswer).toLowerCase() === removePunctuation(currentQuestion.answer).toLowerCase()
                   ? "Correct!"
-                  : "Incorrect"}
+                  : "Incorrect"}<br /><br />
+                  <span className="correct-answer">The Correct Answer: {currentQuestion.answer} </span><br />
               </p>
             )}
-            <button
-              className="btn btn-info mx-2"
-              onClick={() => playSong('Asake', currentQuestion.id, currentQuestion.title, currentQuestion.song_timestamp)}
-            >
-              Play Song
-            </button>
+          
             
-            <div className="d-flex justify-content-center">
+            <div className="d">
               <button
-                className="btn btn-primary mx-2"
+                className="btn-custom-btn"
                 onClick={handleShowAnswer}
                 disabled={!userAnswer.trim()}
               >
                 Submit Answer
               </button>
-              <button className="btn btn-secondary mx-2" onClick={handleNextQuestion}>
-                Next Question
+              <button className="btn-custom-btn-2" onClick={handleNextQuestion}>
+                Skip
               </button>
             </div>
           </div>

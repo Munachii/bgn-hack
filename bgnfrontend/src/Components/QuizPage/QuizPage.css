@@ -1,4 +1,4 @@
-/* SongList.css */
+/* QuizPage.css */
 *{
    font-family: 'Kanit', sans-serif; 
    padding: 10px;
@@ -25,7 +25,7 @@ body{
   height: 350px;
   width: 350px;
   display: block;
-  margin: 0 auto; /* Center the image horizontally */
+  margin: 0 auto; 
   border-radius: 8px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 4px 4px #f9e22a;
 }
@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full screen height */
+  height: 100vh; 
   width: 100vw;
   margin-top: 140px;
   margin-left: 0;
@@ -43,83 +43,234 @@ body {
 }
 
 .instructions {
-  background: linear-gradient(135deg, #f9e22a, #ff914d); /* Fun gradient background */
-  border-radius: 15px; /* Rounded corners */
+  background: linear-gradient(135deg, #f9e22a, #ff914d); 
+  border-radius: 15px; 
   padding: 40px;
   max-width: 100%;
   text-align: center;
   color: black;
-  font-family: 'falco-black'; /* Custom font */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deep shadow for depth */
-  transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transitions */
-  animation: pulse 2s infinite; /* Fun pulsing animation */
+  font-family: 'falco-black'; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+  transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease; 
+  animation: pulse 2s infinite; 
 }
 
 .instructions:hover {
-  transform: rotate(3deg) scale(1.1); /* Rotate and scale slightly on hover */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Deepen shadow on hover */
+  transform: rotate(3deg) scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); 
 }
 
 .instructions h4 {
   font-size: 2rem;
   color: #fff;
   margin-bottom: 15px;
-  letter-spacing: 2px; /* Stylish spacing */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Text shadow for pop */
+  letter-spacing: 2px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
 }
 
 .instructions h6 {
-  font-family: 'calibiri', sans-serif; /* Simple, readable font for instructions */
+  font-family: 'calibiri', sans-serif;
   font-size: 1rem;
   color: #fff;
 }
 
 .artist-title {
-  font-family: 'falco-black'; /* Custom fun font */
-  font-size: 2rem; /* Larger, bolder text */
-  color: #ff914d; /* Bright, energetic color */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Fun shadow for depth */
-  letter-spacing: 2px; /* Adds some spacing for an artistic effect */
-  text-transform: uppercase; /* Makes the artist's name stand out */
+  font-family: 'falco-black'; 
+  font-size: 2rem; 
+  color: #ff914d; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
   animation: fadeIn 2s ease-in-out;
   display:flex;
-  justify-content: center; /* Smooth fade-in effect */
+  justify-content: center; 
 }
 
 .mb-0 {
-  font-family: 'falco-outline'; /* Fun custom font */
-  font-size: 1.5rem; /* Medium size text */
-  color: #f9e22a; /* Bright contrasting color */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  font-family: 'falco-outline'; 
+  font-size: 1.5rem; 
+  color: #f9e22a; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
   margin-top: 10px;
-  animation: pulse 1.5s infinite; /* Pulsing animation for a fun effect */
+  animation: pulse 1.5s infinite;
 }
 /* Style for the container to center the input */
 .input-container {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
+  display: flex; 
+  justify-content: center; 
 }
 
 /* Style for the input field */
 .form-control {
-  width: 50%; /* Set the width to 50% (adjust as needed) */
-  height: 50px; /* Increase height */
-  font-size: 1.5rem; /* Increase font size */
-  padding: 5px; /* Add some padding for better spacing */
-  border-radius: 5px; /* Optional: Rounded corners */
-  border: 2px solid #ccc; /* Optional: Border style */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Box shadow for depth */
-  transition: border 0.3s ease; /* Optional: Transition for hover effect */
+  width: 50%; 
+  height: 50px; 
+  font-size: 1.5rem; 
+  padding: 5px;
+  border-radius: 5px; 
+  border: 2px solid #ccc; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: border 0.3s ease; 
 }
 
-/* Optional: Add a hover effect for the input */
+/* Add a hover effect for the input */
 .form-control:focus {
-  border-color: #f9e22a; /* Change border color on focus */
-  outline: none; /* Remove default outline */
-  box-shadow: 0 0 5px rgba(249, 226, 42, 0.5); /* Optional: Glow effect */
+  border-color: #f9e22a;
+  outline: none;
+  box-shadow: 0 0 5px rgba(249, 226, 42, 0.5); 
+}
+
+.question-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+}
+
+.questions {
+  font-size: 2rem; 
+  font-weight: bold; 
+  padding-left: 120px; 
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0; 
+
+}
+
+/* Customize the button appearance */
+.custom-btn {
+  background-color: black;
+  color: white; 
+  border: 2px solid #f9e22a; 
+  border-radius: 30px;
+  padding: 15px 40px; 
+  font-size: 1.2rem; 
+  font-family: 'falco-black'; 
+  cursor: pointer; 
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  align-items: center; /* Optional for vertical alignment */
+  height: 100%; /* Adjust depending on your layout */
+  margin-top: 5px;
+  margin-bottom: 15px; /* Adjust vertical spacing */
+}
+
+/* Hover effect */
+.custom-btn:hover {
+  background-color: #f9e22a; 
+  color: #000; 
+  transform: scale(1.05); 
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); 
+}
+
+/* Center the button container */
+.d{
+  display:flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically if needed */
+  margin-top: 5px; /* Space above the buttons */
+  margin-right: -4px;
+}
+
+.btn-custom-btn-2 {
+  padding: 10px 20px; /* Add padding to buttons */
+  font-size: 1rem; /* Standard font size */
+  border-radius: 5px; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #0056b3;
+
 }
 
 
+/* Custom button styling */
+.btn-custom-btn {
+  padding: 12px 25px; /* Add more padding for a bigger button */
+  font-size: 1.1rem; /* Slightly larger font */
+  border-radius: 50px; /* Fully rounded button for a modern look */
+  background: linear-gradient(135deg, #28a745, #218838); /* Green gradient */
+  border: none; /* Remove default border */
+  color: white; /* Button text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease; /* Smooth transitions */
+  letter-spacing: 1px; /* Slightly increase letter spacing */
+  margin-right: 15px;
+}
+
+/* Hover effect for button */
+.btn-custom-btn:hover {
+  background: linear-gradient(135deg, #218838, #1c7430); /* Darker green gradient on hover */
+  transform: translateY(-3px) scale(1.05); /* Slight lift and scale */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow */
+}
+
+/* Active (pressed) state */
+.btn-custom-btn:active {
+  background: #1c7430; /* Darker green when pressed */
+  transform: translateY(1px); /* Slight press-down effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow when pressed */
+}
+
+/* Custom button styling */
+.btn-custom-btn-2{
+  padding: 12px 25px; /* Add more padding for a bigger button */
+  font-size: 1.1rem; /* Slightly larger font */
+  border-radius: 50px; /* Fully rounded button for a modern look */
+  background: linear-gradient(blue, darkblue, lightblue); /* Green gradient */
+  border: none; /* Remove default border */
+  color: white; /* Button text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease; /* Smooth transitions */
+  letter-spacing: 1px; /* Slightly increase letter spacing */
+  margin-right: 15px;
+}
+
+/* Hover effect for button */
+.btn-custom-btn-2:hover {
+  background: linear-gradient(blue, darkblue, lightblue); /* Darker blue gradient on hover */
+  transform: translateY(-3px) scale(1.05); /* Slight lift and scale */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Slightly deeper shadow */
+}
+
+/* Active (pressed) state */
+.btn-custom-btn-2:active {
+  background: darkblue; 
+  transform: translateY(1px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.textColor{
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.correct {
+  color: white; /* Green for correct answers */
+  font-weight: bold; 
+  background-color: rgba(0, 255, 0, 0.1); /* Light green background */
+  border: 2px solid green;
+  border-radius: 10px;
+}
+
+.incorrect {
+  color: white; /* Red for incorrect answers */
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+  border: 2px solid red;
+  border-radius: 10px;
+}
+
+.correct-answer {
+  font-style: italic;
+  font-weight: bold;
+  color: white;
+  font-size: 1.1rem;
+}
 
 /* Keyframes for smooth fade-in effect */
 @keyframes fadeIn {
