@@ -14,20 +14,149 @@ body{
 }
 .game-page-title{
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin-top: 20px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #f9e22a;
 }
 
-.instructions{
-  text-align: center;
-  font-size: 1.7rem;
-  color: #ccc;
-  margin-bottom: 10px;
+.rounded {
+  height: 350px;
+  width: 350px;
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 4px 4px #f9e22a;
 }
 
-.song-list {
+body {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full screen height */
+  width: 100vw;
+  margin-top: 140px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.instructions {
+  background: linear-gradient(135deg, #f9e22a, #ff914d); /* Fun gradient background */
+  border-radius: 15px; /* Rounded corners */
+  padding: 40px;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+  font-family: 'falco-black'; /* Custom font */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deep shadow for depth */
+  transition: transform 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transitions */
+  animation: pulse 2s infinite; /* Fun pulsing animation */
+}
+
+.instructions:hover {
+  transform: rotate(3deg) scale(1.1); /* Rotate and scale slightly on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Deepen shadow on hover */
+}
+
+.instructions h4 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 2px; /* Stylish spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Text shadow for pop */
+}
+
+.instructions h6 {
+  font-family: 'calibiri', sans-serif; /* Simple, readable font for instructions */
+  font-size: 1rem;
+  color: #fff;
+}
+
+.artist-title {
+  font-family: 'falco-black'; /* Custom fun font */
+  font-size: 2rem; /* Larger, bolder text */
+  color: #ff914d; /* Bright, energetic color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Fun shadow for depth */
+  letter-spacing: 2px; /* Adds some spacing for an artistic effect */
+  text-transform: uppercase; /* Makes the artist's name stand out */
+  animation: fadeIn 2s ease-in-out;
+  display:flex;
+  justify-content: center; /* Smooth fade-in effect */
+}
+
+.mb-0 {
+  font-family: 'falco-outline'; /* Fun custom font */
+  font-size: 1.5rem; /* Medium size text */
+  color: #f9e22a; /* Bright contrasting color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  margin-top: 10px;
+  animation: pulse 1.5s infinite; /* Pulsing animation for a fun effect */
+}
+/* Style for the container to center the input */
+.input-container {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+}
+
+/* Style for the input field */
+.form-control {
+  width: 50%; /* Set the width to 50% (adjust as needed) */
+  height: 50px; /* Increase height */
+  font-size: 1.5rem; /* Increase font size */
+  padding: 5px; /* Add some padding for better spacing */
+  border-radius: 5px; /* Optional: Rounded corners */
+  border: 2px solid #ccc; /* Optional: Border style */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Box shadow for depth */
+  transition: border 0.3s ease; /* Optional: Transition for hover effect */
+}
+
+/* Optional: Add a hover effect for the input */
+.form-control:focus {
+  border-color: #f9e22a; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(249, 226, 42, 0.5); /* Optional: Glow effect */
+}
+
+
+
+/* Keyframes for smooth fade-in effect */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for subtle pulsing animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fun pulsing animation */
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+}
+
+.song-list{
     display: flex; /* Use flexbox layout */
     flex-direction: column; /* Stack items in a column */
     gap: 20px; /* Space between items */
@@ -48,23 +177,6 @@ body{
     
   }
   
-
-  
-
-  .card-img-top{
-    height: 500px;
-  min-width: 200px;
-  max-width: 100%;
-  
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  border-radius: 8px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 4px 4px #f9e22a;
-  
-  
-  }
   .h5-font-weight-bold{
     padding-top: 50px;
     font-size: 1.1rem;

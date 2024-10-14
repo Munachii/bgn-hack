@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
 import pic1 from '../../images/2-30.png';
 import './QuizPage.css';
 
@@ -131,17 +130,20 @@ useEffect(() => {
 
   return (
     <>
-      <h1 className="game-page-title">Lyric Lingo</h1>
-      <h4>How to play :</h4>
-      <h6>Listen to the song snippet in the native language of your choice, then translate the snippet to English.</h6>
+      <h1 className="game-page-title">Lyrica</h1>
+      <div className="instructions">
+        <h4>How to play:</h4>
+        <h6>Listen to the song snippet in the native language of your choice, then translate the snippet to English.</h6>
+      </div>
+
       <div className="container d-flex justify-content-center my-4 mb-5">
         <div className="card">
           <div className="bg-image hover-overlay ripple">
-            <img className="card-img-top" src={pic1} alt="Card cap" />
+            <img className="rounded" src={pic1} alt="Card cap" />
           </div>
           <div className="card-body text-center">
-            <h5 className="h5 font-weight-bold">Asake</h5>
-            <p className="mb-0">2:30</p>
+            <h5 className="artist-title">Artist: Asake</h5>
+            <p className="mb-0"> Song Title : 2:30</p>
           </div>
         </div>
       </div>
@@ -151,7 +153,7 @@ useEffect(() => {
           <div>
             <h2>{currentQuestion.question}</h2>
 
-            <div>
+            <div className="input-container">
               <input
                 type="text"
                 placeholder="Type your answer here"
